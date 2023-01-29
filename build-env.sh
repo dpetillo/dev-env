@@ -4,14 +4,11 @@ env_name=$1
 
 echo "creating environment $1"
 
-cd infra
-terraform init
-terraform workspace new $1 || true
-terraform workspace select $1
+pushd "infra/live/$1/compute"
 
-terraform apply -auto-approve -var-file "config/$1.tfvars"
+terragrunt apply -auto-approve
 
-cd ..
+popd
 
 kubectl config use-context "minikube-$1"
 minikube profile "minikube-$1"

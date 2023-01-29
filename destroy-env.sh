@@ -4,8 +4,6 @@ env_name=$1
 
 echo "destroying environment $1"
 
-cd infra
-terraform init
-terraform workspace new $1 || true
-terraform workspace select $1
-terraform destroy
+pushd "infra/live/$1/compute"
+
+terragrunt destroy
