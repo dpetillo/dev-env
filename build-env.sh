@@ -17,4 +17,4 @@ kubectl apply -f ./kube
 
 echo ""
 echo "environment build complete"
-echo "minikube ip: $(minikube ip)"
+#echo "minikube ip: $(minikube ip)"

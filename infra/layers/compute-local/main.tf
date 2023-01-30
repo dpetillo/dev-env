@@ -11,10 +11,6 @@ provider "minikube" {
   kubernetes_version = "v1.25.3"
 }
 
-variable "env_name" {
-  type = string
-}
-
 locals {
   cluster_name = "minikube-${var.env_name}"
 }
